@@ -1,24 +1,28 @@
 package com.journal.journal.entity;
 
-public class JounalEntry {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-    private long id;
+@Document
+public class JournalEntry {
+
+    @Id
+    private String id;
 
     private String title;
     private String content;
 
-
     /**
-     * @return long return the id
+     * @return String return the id
      */
-    public long getId() {
+    public String getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -49,5 +53,4 @@ public class JounalEntry {
     public void setContent(String content) {
         this.content = content;
     }
-
 }
