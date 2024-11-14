@@ -1,8 +1,20 @@
 package com.journal.journal.service;
 
+import com.journal.journal.entity.JournalEntry;
+import com.journal.journal.repository.JournalEntryRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+@Component
 public class JournalEntryService {
 
-    //bussiness logic
+    @Autowired
+    private JournalEntryRepository journalEntryRepository; // DI
 
-
+    public void saveEntry(JournalEntry journalEntry) {
+        journalEntryRepository.save(journalEntry);
+    }
 }
+
+//controller ->service ->repository
