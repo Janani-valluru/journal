@@ -1,25 +1,26 @@
 package com.journal.journal.entity;
 
+import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Document(collection = "journal_entries") // document says these are mongodb's collections mapped entity  to
 public class JournalEntry {
 
     @Id
-    private String id;   //unique key
+    private ObjectId id;   //unique key
 
     private String title;
     private String content;
 
-    private Date date;
-    public Date getDate() {
+    private LocalDateTime date;
+    public LocalDateTime getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(LocalDateTime date) {
         this.date = date;
     }
 
@@ -27,14 +28,14 @@ public class JournalEntry {
     /**
      * @return String return the id
      */
-    public String getId() {
+    public ObjectId getId() {
         return id;
     }
 
     /**
      * @param id the id to set
      */
-    public void setId(String id) {
+    public void setId(ObjectId id) {
         this.id = id;
     }
 
